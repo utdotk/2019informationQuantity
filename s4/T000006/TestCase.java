@@ -33,14 +33,16 @@ public class TestCase {
     public static void main(String[] args) {
 	try {
 	    FrequencerInterface  myObject;
-	    int freq;
 	    System.out.println("checking s4.T000006.Frequencer");
 	    myObject = new s4.T000006.Frequencer();
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
-	    myObject.setTarget("H".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    myObject.setTarget("Hi Ho".getBytes());
+	    System.out.println(myObject.frequency() == 2 ? "OK" : "NG");
+	    System.out.println(myObject.subByteFrequency(0, 2) == 2 ? "OK" : "NG");
+
+	    // whitebox test
+	    myObject.setTarget("oo".getBytes());
+	    myObject.frequency();
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

@@ -35,6 +35,16 @@ public class TestCase {
 	    FrequencerInterface  myObject;
 	    System.out.println("checking s4.T000006.Frequencer");
 	    myObject = new s4.T000006.Frequencer();
+
+	    // blackbox test
+	    System.out.println(myObject.frequency() == -1 ? "OK" : "NG");
+	    myObject.setTarget("".getBytes());
+	    System.out.println(myObject.frequency() == -1 ? "OK" : "NG");
+	    myObject.setTarget("dummy".getBytes());
+	    System.out.println(myObject.frequency() == 0 ? "OK" : "NG");
+	    myObject.setSpace("".getBytes());
+	    System.out.println(myObject.frequency() == 0 ? "OK" : "NG");
+
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
 	    myObject.setTarget("Hi Ho".getBytes());
 	    System.out.println(myObject.frequency() == 2 ? "OK" : "NG");
